@@ -28,7 +28,7 @@ def detect_recog(image, model_detection, model_GenderRecog):
 
     #print(img_temp)
     face = model_detection.detectMultiScale(img_temp, scaleFactor=1.2, minNeighbors=2, minSize=(30, 30)) # face is a tupe if empty, else is a array
-
+    print(face)
     # check have face or not
     if len(face) == 0:
         print("This picture doesn't contain any people")

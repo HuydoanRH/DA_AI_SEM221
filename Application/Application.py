@@ -149,11 +149,6 @@ class App(customtkinter.CTk):
 
     def realtime_detect(self):
         print("Using realtime")
-        #self.btn_predict.state = ['disabled']
-        #self.btn_snapshot.state = ['!disabled']
-        # self.btn_predict['state'] = DISABLED
-        # self.btn_snapshot['state'] = NORMAL
-        # self.btn_saveimage['state'] = NORMAL
         self.check_camera = True
         if self.check_camera:
             self.cam = cv2.VideoCapture(0)
@@ -228,12 +223,6 @@ class App(customtkinter.CTk):
 
     def image_button_event_upload(self):
         print("use image")
-        #self.btn_predict['state']='!disabled'
-        #self.btn_snapshot['state']='disabled'
-        # self.btn_predict['state'] = NORMAL
-        # self.btn_snapshot['state'] = DISABLED
-        # self.btn_saveimage['state'] = NORMAL
-
         if self.check_camera == True:
             self.cam.release()
             self.check_camera = False
@@ -254,6 +243,7 @@ class App(customtkinter.CTk):
 
         self.photo = cv2.imread(self.filename, 1)
         self.photo = detect_recog(self.photo, self.face_cascade, self.model)
+        # pritn(self.photo)
         self.photo = cv2.cvtColor(self.photo, cv2.COLOR_BGR2RGB)
         self.img_save = self.photo
         self.photo = Image.fromarray(self.photo)
